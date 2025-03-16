@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=800, user-scalable=no">
+    <title>Azad's Retro Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+    margin-top: 20px;
+    padding: 0;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #000;
+    color: #0f0; 
+    overflow: hidden;
+    font-size: 14px; 
+    line-height: 1.4;
+}
+
+::-webkit-scrollbar {
+    width: 10px; 
+}
+
+::-webkit-scrollbar-track {
+    background: #000; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0f0;
+    border-radius: 5px; 
+    border: 2px solid #000; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #f0f;
+}
+
+.pixel-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 255, 0, 0.2) 2px, rgba(0, 255, 0, 0.2) 4px),
+        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0, 255, 0, 0.2) 2px, rgba(0, 255, 0, 0.2) 4px);
+    z-index: -1;
+    animation: scrollBg 5s linear infinite;
+}
+
+@keyframes scrollBg {
+    from { background-position: 0 0; }
+    to { background-position: 0 100%; }
+}
+
+#intro-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+#intro-screen h1 {
+    font-size: 2rem;
+    color: #0f0;
+    animation: colorShift 2s infinite;
+    margin: 0;
+}
+
+#intro-screen p {
+    font-size: 1.2rem;
+    color: #0f0;
+    animation: blink 1s infinite;
+    margin: 0;
+}
+
+@keyframes colorShift {
+    0% { color: #0ff; }
+    25% { color: #f0f; }
+    50% { color: #ff0; }
+    75% { color: #0f0; }
+    100% { color: #0ff; }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+h1, h2 {
+    color: rgb(255, 255, 255);
+    animation: colorShift 2s infinite;
+    margin: 0.5rem 0;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.2rem;
+}
+
+#main-content {
+    display: none;
+    padding: 10px;
+    width: 95%;
+    max-width: 1900px;
+    height: 95vh;
+    max-height: 94vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #0f0;
+    margin: 10px auto;
+    position: relative;
+    z-index: 1;
+    overflow-y: auto;
+}
+
+p {
+    font-size: 2rem;
+    margin: 0.25rem 0;
+}
+
+.slide-in {
+    font-size: 1.6rem;
+    margin: 0.5rem 0;
+}
+
+.mascot {
+    width: 32px;
+    height: 32px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: transparent;
+    animation: bounce 2s infinite;
+    box-shadow:
+        0px 0px #0f0, 8px 0px #0f0, 16px 0px #0f0, 24px 0px #0f0,
+        0px 8px #0f0, 8px 8px #0f0, 16px 8px #0f0, 24px 8px #0f0,
+        0px 16px #0f0, 8px 16px #0f0, 16px 16px #0f0, 24px 16px #0f0,
+        0px 24px #0f0, 8px 24px #0f0, 16px 24px #0f0, 24px 24px #0f0;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.typing-text {
+    display: inline-block;
+    overflow: hidden;
+    white-space: normal;
+    border-right: 2px solid #0f0;
+    width: 0;
+    animation: typing 3s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
+    font-size: 0.8rem;
+    word-wrap: break-word;
+    margin: 0.25rem 0;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #0f0; }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 10px;
+    }
+
+    #intro-screen h1 {
+        font-size: 1.5rem;
+    }
+
+    #intro-screen p {
+        font-size: 1rem;
+    }
+
+    #main-content {
+        width: 95%;
+        height: 85vh;
+        margin: 5px auto;
+        padding: 5px;
+    }
+
+    h1 {
+        font-size: 1.5rem; 
+    }
+
+    h2 {
+        font-size: 0.9rem;
+    }
+
+    p {
+        font-size: 8px;
+    }
+
+    .mascot {
+        width: 24px;
+        height: 24px;
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .typing-text {
+        font-size: 0.8rem;
+    }
+
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="pixel-bg"></div>
+    <div id="intro-screen">
+        <h1 class="color-shift">WELCOME TO MY PORTFOLIO</h1>
+        <p class="blink">Press Start</p>
+    </div>
+    <div id="main-content" class="hidden">
+        <header>
+            <h1 class="color-shift">Azad's Retro Portfolio</h1>
+            <p class="typing-text">SQL Developer | Java Enthusiast</p>
+        </header>
+
+        <div class="mascot"></div>
+
+        <section class="slide-in">
+            <h2>Contact</h2>
+            <p class="typing-text">LinkedIn: <a href="https://in.linkedin.com/in/azad-2257721b4" target="_blank">azad-2257721b4</a> GitHub: <a href="https://github.com/porfskylord" target="_blank">porfskylord</a></p>
+            <p class="typing-text">Email: azadmuk011098@gmail.com Phone: 9354619992</p>
+        </section>
+
+        <section class="slide-in">
+            <h2>Objective</h2>
+            <p class="typing-text">SQL Developer with 2+ years of experience in designing complex queries, optimizing database performance, and improving data processing efficiency.</p>
+        </section>
+
+        <section class="slide-in">
+            <h2>Skills</h2>
+            <p class="typing-text"><strong>Programming:</strong> Java, JavaFX</p>
+            <p class="typing-text"><strong>Databases:</strong> PostgreSQL, PL/SQL, Complex Queries</p>
+            <p class="typing-text"><strong>Database Management:</strong> Stored Procedures, Triggers, Views, Indexing</p>
+        </section>
+
+        <section class="slide-in">
+            <h2>Experience</h2>
+            <p class="typing-text"><strong>Eazy ERP Technology Pvt Ltd - SQL Developer</strong></p>
+            <ul>
+                <li class="typing-text">Designed and optimized complex SQL queries for ERP software.</li>
+                <li class="typing-text">Maintained and enhanced database-backed reports.</li>
+                <li class="typing-text">Optimized backend data storage and retrieval.</li>
+            </ul>
+        </section>
+
+        <section class="slide-in">
+            <h2>Achievements & Awards</h2>
+            <p class="typing-text">Excellence Award 2023-24 for outstanding performance in database solutions.</p>
+            <p class="typing-text">Received four monthly appreciations for high-impact SQL solutions.</p>
+        </section>
+
+        <section class="slide-in">
+            <h2>Education</h2>
+            <p class="typing-text"><strong>Greater Noida Institute of Technology (AKTU)</strong></p>
+            <p class="typing-text">B.Tech in Computer Science and Engineering - 7.11 GPA</p>
+        </section>
+
+        <section class="slide-in">
+            <h2>Interests</h2>
+            <p class="typing-text">Sketching | Gaming | Watching Anime & Superhero Movies</p>
+        </section>
+
+        
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const introScreen = document.getElementById('intro-screen');
+            const mainContent = document.getElementById('main-content');
+
+            introScreen.addEventListener('click', () => {
+                introScreen.style.display = 'none';
+                mainContent.style.display = 'block';
+
+                
+                const typingTexts = document.querySelectorAll('.typing-text');
+                typingTexts.forEach((text, index) => {
+                    setTimeout(() => {
+                        text.style.animation = `typing 3s steps(40, end) ${index * 0.5}s forwards, blink-caret 0.75s step-end infinite`;
+                    }, index * 500); 
+                });
+            });
+
+            const sections = document.querySelectorAll('.slide-in');
+            sections.forEach((section, index) => {
+                setTimeout(() => {
+                    section.style.animationDelay = `${index * 0.5}s`;
+                }, 0);
+            });
+        });
+    </script>
+</body>
+</html>
